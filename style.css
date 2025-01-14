@@ -11,7 +11,7 @@
     width: 400px;
     height: 400px;
     /*! border: solid black 2px;  Border is broken af*/
-    margin: 20px auto;
+    /* margin: 20px auto; */
 }
 
 .dark {
@@ -31,4 +31,5 @@
     position: absolute;
     cursor: pointer;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    /* margin: 20px auto; */
 }

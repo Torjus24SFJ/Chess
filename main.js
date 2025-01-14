@@ -26,20 +26,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pawn.addEventListener('mousedown', (e) => {
         isDragging = true;
-    })
+    });
 
     document.addEventListener('mousemove', (e) => {
         if (isDragging) {
             pawn.style.left = `${e.pageX - 20}px`;
             pawn.style.top = `${e.pageY - 20}px`;
         }
-    })
+    });
 
     document.addEventListener('mouseup', (e) => {
-        if(isDragging){
+        if (isDragging) {
             isDragging = false;
 
-            //TODO moving and snapping to tile
+            //! Read getBoudingClientRect
+            const boardRectangle = chessboard.getBoundingClientRect();
+            const x = e.pageX - boardRectangle.left;
+            const y = e.pageY - boardRectangle.top;
+
+            pawnX = Math.min(Math.max(Math.floor(x / tileSize), 0), 7);
+            pawnY = Math.min(Math.max(Math.floor(y / tileSize), 0), 7);
+
+            pawn.style.left = `${pawnX * tileSize + 5}px`;
+            pawn.style.top = `${pawnY * tileSize + 5}px`;
         }
     })
 });
