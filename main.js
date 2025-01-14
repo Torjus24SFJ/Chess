@@ -16,11 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    let pawnX = 0;
-    let pawnY = 0;
-
-    pawn.style.left = `${pawnX * tileSize + 5}px`
-    pawn.style.right = `${pawnY * tileSize + 5}px`
+    for (let col = 0; col < 8; col++) {
+        const pawn = document.createElement('div');
+        pawn.classList.add('pawn');
+        pawn.style.left = `${col * tileSize + 5}px`;
+        pawn.style.top = `${6 * tileSize + 5}px`;
+        chessboard.appendChild(pawn);
+    }
 
     let isDragging = false
 
